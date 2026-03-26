@@ -1,0 +1,596 @@
+openapi: 3.1.0
+info:
+  title: Netflix Eureka REST API
+  description: >-
+    Eureka REST operations for service registration, discovery, and instance
+    management. Eureka is a REST-based service for locating services for the
+    purpose of load balancing and failover of middle-tier servers.
+  version: 2.0.0
+  contact:
+    name: Netflix OSS
+    url: https://github.com/Netflix/eureka
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+  - url: http://localhost:8761/eureka
+    description: Local Eureka server
+  - url: https://{eureka_host}:{port}/eureka
+    description: Custom Eureka server
+    variables:
+      eureka_host:
+        default: localhost
+      port:
+        default: '8761'
+paths:
+  /apps:
+    get:
+      operationId: getAllApplications
+      summary: Get all registered applications
+      description: Returns all registered application instances grouped by application name.
+      tags:
+        - Applications
+      parameters:
+        - name: regions
+          in: query
+          description: Comma-separated list of remote regions to include
+          schema:
+            type: string
+      responses:
+        '200':
+          description: All registered applications
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  applications:
+                    $ref: '#/components/schemas/Applications'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Applications'
+  /apps/{appId}:
+    get:
+      operationId: getApplication
+      summary: Get application by name
+      description: Returns all instances of a specific application.
+      tags:
+        - Applications
+      parameters:
+        - name: appId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Application name
+      responses:
+        '200':
+          description: Application instances
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  application:
+                    $ref: '#/components/schemas/Application'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Application'
+        '404':
+          description: Application not found
+    post:
+      operationId: registerInstance
+      summary: Register a new application instance
+      description: Registers a new instance for the specified application.
+      tags:
+        - Instances
+      parameters:
+        - name: appId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Application name
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                instance:
+                  $ref: '#/components/schemas/InstanceInfo'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/InstanceInfo'
+      responses:
+        '204':
+          description: Instance registered successfully
+  /apps/{appId}/{instanceId}:
+    get:
+      operationId: getInstance
+      summary: Get a specific instance
+      description: Returns information about a specific instance of an application.
+      tags:
+        - Instances
+      parameters:
+        - name: appId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: instanceId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Instance ID (typically hostname)
+      responses:
+        '200':
+          description: Instance information
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  instance:
+                    $ref: '#/components/schemas/InstanceInfo'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/InstanceInfo'
+        '404':
+          description: Instance not found
+    delete:
+      operationId: deregisterInstance
+      summary: Deregister an instance
+      description: Removes the specified instance from the registry.
+      tags:
+        - Instances
+      parameters:
+        - name: appId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: instanceId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Instance deregistered
+        '404':
+          description: Instance not found
+    put:
+      operationId: sendHeartbeat
+      summary: Send heartbeat
+      description: >-
+        Sends a heartbeat to indicate the instance is still alive. Must be sent
+        periodically to avoid expiration (default 90 seconds).
+      tags:
+        - Instances
+      parameters:
+        - name: appId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: instanceId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: status
+          in: query
+          schema:
+            type: string
+            enum:
+              - UP
+              - DOWN
+              - STARTING
+              - OUT_OF_SERVICE
+              - UNKNOWN
+          description: Overridden status value
+        - name: lastDirtyTimestamp
+          in: query
+          schema:
+            type: string
+          description: Last dirty timestamp for conflict resolution
+        - name: overriddenstatus
+          in: query
+          schema:
+            type: string
+            enum:
+              - UP
+              - DOWN
+              - STARTING
+              - OUT_OF_SERVICE
+              - UNKNOWN
+          description: Overridden status
+      responses:
+        '200':
+          description: Heartbeat acknowledged
+        '404':
+          description: Instance not found (re-register required)
+  /apps/{appId}/{instanceId}/status:
+    put:
+      operationId: updateInstanceStatus
+      summary: Update instance status override
+      description: Updates the status of an instance (admin operation to take out of service).
+      tags:
+        - Instances
+      parameters:
+        - name: appId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: instanceId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: value
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - UP
+              - DOWN
+              - STARTING
+              - OUT_OF_SERVICE
+              - UNKNOWN
+          description: New status value
+        - name: lastDirtyTimestamp
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Status updated
+        '404':
+          description: Instance not found
+        '500':
+          description: Status update failed
+    delete:
+      operationId: removeInstanceStatusOverride
+      summary: Remove status override
+      description: Removes the status override and reverts to the instance's actual status.
+      tags:
+        - Instances
+      parameters:
+        - name: appId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: instanceId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: lastDirtyTimestamp
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Status override removed
+        '404':
+          description: Instance not found
+  /apps/{appId}/{instanceId}/metadata:
+    put:
+      operationId: updateInstanceMetadata
+      summary: Update instance metadata
+      description: Updates the metadata map for an instance.
+      tags:
+        - Instances
+      parameters:
+        - name: appId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: instanceId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties:
+                type: string
+      responses:
+        '200':
+          description: Metadata updated
+        '404':
+          description: Instance not found
+  /instances/{instanceId}:
+    get:
+      operationId: getInstanceById
+      summary: Get instance by ID
+      description: Returns instance information by unique instance ID (across all apps).
+      tags:
+        - Instances
+      parameters:
+        - name: instanceId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Instance information
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  instance:
+                    $ref: '#/components/schemas/InstanceInfo'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/InstanceInfo'
+        '404':
+          description: Instance not found
+  /apps/delta:
+    get:
+      operationId: getDelta
+      summary: Get recent changes (delta)
+      description: >-
+        Returns recently changed instances. Used by clients to incrementally
+        update their local cache rather than fetching the full registry.
+      tags:
+        - Applications
+      responses:
+        '200':
+          description: Delta changes
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  applications:
+                    $ref: '#/components/schemas/Applications'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Applications'
+  /vips/{vipAddress}:
+    get:
+      operationId: getByVipAddress
+      summary: Query by VIP address
+      description: Returns instances registered under a specific VIP address.
+      tags:
+        - VIP
+      parameters:
+        - name: vipAddress
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Instances for VIP address
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  applications:
+                    $ref: '#/components/schemas/Applications'
+        '404':
+          description: No instances found
+  /svips/{svipAddress}:
+    get:
+      operationId: getBySecureVipAddress
+      summary: Query by secure VIP address
+      description: Returns instances registered under a specific secure VIP address.
+      tags:
+        - VIP
+      parameters:
+        - name: svipAddress
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Instances for secure VIP address
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  applications:
+                    $ref: '#/components/schemas/Applications'
+        '404':
+          description: No instances found
+components:
+  schemas:
+    Applications:
+      type: object
+      properties:
+        versions__delta:
+          type: string
+          description: Version delta hash
+        apps__hashcode:
+          type: string
+          description: Hash code for all registered apps
+        application:
+          type: array
+          items:
+            $ref: '#/components/schemas/Application'
+    Application:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Application name
+        instance:
+          type: array
+          items:
+            $ref: '#/components/schemas/InstanceInfo'
+    InstanceInfo:
+      type: object
+      required:
+        - hostName
+        - app
+        - vipAddress
+        - dataCenterInfo
+      properties:
+        instanceId:
+          type: string
+          description: Unique instance ID
+        hostName:
+          type: string
+          description: Hostname of the instance
+        app:
+          type: string
+          description: Application name
+        ipAddr:
+          type: string
+          description: IP address
+        status:
+          type: string
+          enum:
+            - UP
+            - DOWN
+            - STARTING
+            - OUT_OF_SERVICE
+            - UNKNOWN
+          description: Current instance status
+        overriddenStatus:
+          type: string
+          enum:
+            - UP
+            - DOWN
+            - STARTING
+            - OUT_OF_SERVICE
+            - UNKNOWN
+        port:
+          type: object
+          properties:
+            $:
+              type: integer
+              description: Port number
+            '@enabled':
+              type: string
+              description: Whether port is enabled
+        securePort:
+          type: object
+          properties:
+            $:
+              type: integer
+            '@enabled':
+              type: string
+        countryId:
+          type: integer
+        dataCenterInfo:
+          type: object
+          required:
+            - '@class'
+            - name
+          properties:
+            '@class':
+              type: string
+              description: Datacenter info class
+            name:
+              type: string
+              enum:
+                - Netflix
+                - Amazon
+                - MyOwn
+            metadata:
+              type: object
+              properties:
+                ami-launch-index:
+                  type: string
+                local-hostname:
+                  type: string
+                availability-zone:
+                  type: string
+                instance-id:
+                  type: string
+                public-ipv4:
+                  type: string
+                public-hostname:
+                  type: string
+                ami-manifest-path:
+                  type: string
+                local-ipv4:
+                  type: string
+                hostname:
+                  type: string
+                ami-id:
+                  type: string
+                instance-type:
+                  type: string
+        leaseInfo:
+          type: object
+          properties:
+            renewalIntervalInSecs:
+              type: integer
+              description: Client heartbeat interval (default 30)
+            durationInSecs:
+              type: integer
+              description: Duration until expiry without heartbeat (default 90)
+            registrationTimestamp:
+              type: integer
+              format: int64
+            lastRenewalTimestamp:
+              type: integer
+              format: int64
+            evictionTimestamp:
+              type: integer
+              format: int64
+            serviceUpTimestamp:
+              type: integer
+              format: int64
+        metadata:
+          type: object
+          additionalProperties:
+            type: string
+          description: Application-specific metadata
+        homePageUrl:
+          type: string
+          format: uri
+        statusPageUrl:
+          type: string
+          format: uri
+        healthCheckUrl:
+          type: string
+          format: uri
+        secureHealthCheckUrl:
+          type: string
+          format: uri
+        vipAddress:
+          type: string
+          description: Virtual host name (VIP address)
+        secureVipAddress:
+          type: string
+          description: Secure VIP address
+        isCoordinatingDiscoveryServer:
+          type: string
+          description: Whether this is a coordinating discovery server
+        lastUpdatedTimestamp:
+          type: string
+        lastDirtyTimestamp:
+          type: string
+        actionType:
+          type: string
+          enum:
+            - ADDED
+            - MODIFIED
+            - DELETED
+tags:
+  - name: Applications
+    description: Query registered applications
+  - name: Instances
+    description: Manage service instances
+  - name: VIP
+    description: Virtual IP address based queries

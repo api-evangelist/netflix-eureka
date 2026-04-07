@@ -7,13 +7,13 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Service Discovery
-  - Microservices
-  - Load Balancing
-  - Failover
-  - Netflix
-  - Java
   - Cloud Native
+  - Failover
+  - Java
+  - Load Balancing
+  - Microservices
+  - Netflix
+  - Service Discovery
   - Service Registry
 url: >-
   https://raw.githubusercontent.com/api-evangelist/netflix-eureka/refs/heads/main/apis.yml
@@ -29,13 +29,13 @@ apis:
       cloud-native architectures, originally built for the AWS cloud.
     humanURL: https://github.com/Netflix/eureka
     tags:
-      - Service Discovery
-      - Microservices
-      - Load Balancing
-      - Failover
-      - Netflix
-      - Java
       - Cloud Native
+      - Failover
+      - Java
+      - Load Balancing
+      - Microservices
+      - Netflix
+      - Service Discovery
       - Service Registry
     baseURL: http://localhost:8761/eureka
     properties:

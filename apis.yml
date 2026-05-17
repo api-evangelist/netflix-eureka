@@ -51,7 +51,7 @@ common:
     url: https://github.com/Netflix/eureka/wiki
   - type: GitHub Org
     url: https://github.com/Netflix
-  - type: Getting Started
+  - type: GettingStarted
     url: https://github.com/Netflix/eureka/wiki/Getting-Started
   - type: FAQ
     url: https://github.com/Netflix/eureka/wiki/Eureka-2.0-Motivations

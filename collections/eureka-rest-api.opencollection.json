@@ -1,0 +1,337 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Netflix Eureka REST API",
+    "version": "2.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Applications",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get all registered applications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8761/eureka/apps",
+            "params": [
+              {
+                "name": "regions",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of remote regions to include"
+              }
+            ]
+          },
+          "docs": "Returns all registered application instances grouped by application name."
+        },
+        {
+          "info": {
+            "name": "Get application by name",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8761/eureka/apps/:appId",
+            "params": [
+              {
+                "name": "appId",
+                "value": "",
+                "type": "path",
+                "description": "Application name"
+              }
+            ]
+          },
+          "docs": "Returns all instances of a specific application."
+        },
+        {
+          "info": {
+            "name": "Get recent changes (delta)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8761/eureka/apps/delta"
+          },
+          "docs": "Returns recently changed instances. Used by clients to incrementally update their local cache rather than fetching the full registry."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Instances",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Register a new application instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:8761/eureka/apps/:appId",
+            "params": [
+              {
+                "name": "appId",
+                "value": "",
+                "type": "path",
+                "description": "Application name"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Registers a new instance for the specified application."
+        },
+        {
+          "info": {
+            "name": "Get a specific instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8761/eureka/apps/:appId/:instanceId",
+            "params": [
+              {
+                "name": "appId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "instanceId",
+                "value": "",
+                "type": "path",
+                "description": "Instance ID (typically hostname)"
+              }
+            ]
+          },
+          "docs": "Returns information about a specific instance of an application."
+        },
+        {
+          "info": {
+            "name": "Send heartbeat",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://localhost:8761/eureka/apps/:appId/:instanceId",
+            "params": [
+              {
+                "name": "appId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "instanceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Overridden status value"
+              },
+              {
+                "name": "lastDirtyTimestamp",
+                "value": "",
+                "type": "query",
+                "description": "Last dirty timestamp for conflict resolution"
+              },
+              {
+                "name": "overriddenstatus",
+                "value": "",
+                "type": "query",
+                "description": "Overridden status"
+              }
+            ]
+          },
+          "docs": "Sends a heartbeat to indicate the instance is still alive. Must be sent periodically to avoid expiration (default 90 seconds)."
+        },
+        {
+          "info": {
+            "name": "Deregister an instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://localhost:8761/eureka/apps/:appId/:instanceId",
+            "params": [
+              {
+                "name": "appId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "instanceId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Removes the specified instance from the registry."
+        },
+        {
+          "info": {
+            "name": "Update instance status override",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://localhost:8761/eureka/apps/:appId/:instanceId/status",
+            "params": [
+              {
+                "name": "appId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "instanceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "value",
+                "value": "",
+                "type": "query",
+                "description": "New status value"
+              },
+              {
+                "name": "lastDirtyTimestamp",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Updates the status of an instance (admin operation to take out of service)."
+        },
+        {
+          "info": {
+            "name": "Remove status override",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://localhost:8761/eureka/apps/:appId/:instanceId/status",
+            "params": [
+              {
+                "name": "appId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "instanceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "lastDirtyTimestamp",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Removes the status override and reverts to the instance's actual status."
+        },
+        {
+          "info": {
+            "name": "Update instance metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://localhost:8761/eureka/apps/:appId/:instanceId/metadata",
+            "params": [
+              {
+                "name": "appId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "instanceId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the metadata map for an instance."
+        },
+        {
+          "info": {
+            "name": "Get instance by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8761/eureka/instances/:instanceId",
+            "params": [
+              {
+                "name": "instanceId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns instance information by unique instance ID (across all apps)."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "VIP",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query by VIP address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8761/eureka/vips/:vipAddress",
+            "params": [
+              {
+                "name": "vipAddress",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns instances registered under a specific VIP address."
+        },
+        {
+          "info": {
+            "name": "Query by secure VIP address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8761/eureka/svips/:svipAddress",
+            "params": [
+              {
+                "name": "svipAddress",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns instances registered under a specific secure VIP address."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

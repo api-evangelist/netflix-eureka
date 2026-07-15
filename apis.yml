@@ -41,6 +41,8 @@ apis:
       - type: OpenAPI
         url: https://raw.githubusercontent.com/api-evangelist/netflix-eureka/refs/heads/main/openapi/eureka-rest-api.yml
 common:
+  - type: AgenticAccess
+    url: agentic-access/netflix-eureka-agentic-access.yml
   - type: Website
     url: https://github.com/Netflix/eureka
   - type: Documentation

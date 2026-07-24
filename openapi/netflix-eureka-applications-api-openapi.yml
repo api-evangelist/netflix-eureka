@@ -1,0 +1,277 @@
+openapi: 3.1.0
+info:
+  title: Netflix Eureka REST Applications API
+  description: Eureka REST operations for service registration, discovery, and instance management. Eureka is a REST-based service for locating services for the purpose of load balancing and failover of middle-tier servers.
+  version: 2.0.0
+  contact:
+    name: Netflix OSS
+    url: https://github.com/Netflix/eureka
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: http://localhost:8761/eureka
+  description: Local Eureka server
+- url: https://{eureka_host}:{port}/eureka
+  description: Custom Eureka server
+  variables:
+    eureka_host:
+      default: localhost
+    port:
+      default: '8761'
+tags:
+- name: Applications
+  description: Query registered applications
+paths:
+  /apps:
+    get:
+      operationId: getAllApplications
+      summary: Get all registered applications
+      description: Returns all registered application instances grouped by application name.
+      tags:
+      - Applications
+      parameters:
+      - name: regions
+        in: query
+        description: Comma-separated list of remote regions to include
+        schema:
+          type: string
+      responses:
+        '200':
+          description: All registered applications
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  applications:
+                    $ref: '#/components/schemas/Applications'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Applications'
+  /apps/{appId}:
+    get:
+      operationId: getApplication
+      summary: Get application by name
+      description: Returns all instances of a specific application.
+      tags:
+      - Applications
+      parameters:
+      - name: appId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Application name
+      responses:
+        '200':
+          description: Application instances
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  application:
+                    $ref: '#/components/schemas/Application'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Application'
+        '404':
+          description: Application not found
+  /apps/delta:
+    get:
+      operationId: getDelta
+      summary: Get recent changes (delta)
+      description: Returns recently changed instances. Used by clients to incrementally update their local cache rather than fetching the full registry.
+      tags:
+      - Applications
+      responses:
+        '200':
+          description: Delta changes
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  applications:
+                    $ref: '#/components/schemas/Applications'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Applications'
+components:
+  schemas:
+    InstanceInfo:
+      type: object
+      required:
+      - hostName
+      - app
+      - vipAddress
+      - dataCenterInfo
+      properties:
+        instanceId:
+          type: string
+          description: Unique instance ID
+        hostName:
+          type: string
+          description: Hostname of the instance
+        app:
+          type: string
+          description: Application name
+        ipAddr:
+          type: string
+          description: IP address
+        status:
+          type: string
+          enum:
+          - UP
+          - DOWN
+          - STARTING
+          - OUT_OF_SERVICE
+          - UNKNOWN
+          description: Current instance status
+        overriddenStatus:
+          type: string
+          enum:
+          - UP
+          - DOWN
+          - STARTING
+          - OUT_OF_SERVICE
+          - UNKNOWN
+        port:
+          type: object
+          properties:
+            $:
+              type: integer
+              description: Port number
+            '@enabled':
+              type: string
+              description: Whether port is enabled
+        securePort:
+          type: object
+          properties:
+            $:
+              type: integer
+            '@enabled':
+              type: string
+        countryId:
+          type: integer
+        dataCenterInfo:
+          type: object
+          required:
+          - '@class'
+          - name
+          properties:
+            '@class':
+              type: string
+              description: Datacenter info class
+            name:
+              type: string
+              enum:
+              - Netflix
+              - Amazon
+              - MyOwn
+            metadata:
+              type: object
+              properties:
+                ami-launch-index:
+                  type: string
+                local-hostname:
+                  type: string
+                availability-zone:
+                  type: string
+                instance-id:
+                  type: string
+                public-ipv4:
+                  type: string
+                public-hostname:
+                  type: string
+                ami-manifest-path:
+                  type: string
+                local-ipv4:
+                  type: string
+                hostname:
+                  type: string
+                ami-id:
+                  type: string
+                instance-type:
+                  type: string
+        leaseInfo:
+          type: object
+          properties:
+            renewalIntervalInSecs:
+              type: integer
+              description: Client heartbeat interval (default 30)
+            durationInSecs:
+              type: integer
+              description: Duration until expiry without heartbeat (default 90)
+            registrationTimestamp:
+              type: integer
+              format: int64
+            lastRenewalTimestamp:
+              type: integer
+              format: int64
+            evictionTimestamp:
+              type: integer
+              format: int64
+            serviceUpTimestamp:
+              type: integer
+              format: int64
+        metadata:
+          type: object
+          additionalProperties:
+            type: string
+          description: Application-specific metadata
+        homePageUrl:
+          type: string
+          format: uri
+        statusPageUrl:
+          type: string
+          format: uri
+        healthCheckUrl:
+          type: string
+          format: uri
+        secureHealthCheckUrl:
+          type: string
+          format: uri
+        vipAddress:
+          type: string
+          description: Virtual host name (VIP address)
+        secureVipAddress:
+          type: string
+          description: Secure VIP address
+        isCoordinatingDiscoveryServer:
+          type: string
+          description: Whether this is a coordinating discovery server
+        lastUpdatedTimestamp:
+          type: string
+        lastDirtyTimestamp:
+          type: string
+        actionType:
+          type: string
+          enum:
+          - ADDED
+          - MODIFIED
+          - DELETED
+    Applications:
+      type: object
+      properties:
+        versions__delta:
+          type: string
+          description: Version delta hash
+        apps__hashcode:
+          type: string
+          description: Hash code for all registered apps
+        application:
+          type: array
+          items:
+            $ref: '#/components/schemas/Application'
+    Application:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Application name
+        instance:
+          type: array
+          items:
+            $ref: '#/components/schemas/InstanceInfo'

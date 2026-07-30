@@ -4,7 +4,19 @@ description: >-
   Netflix Eureka is a RESTful service registry used for service discovery, load balancing, and failover of middle-tier
   servers in microservice and cloud-native architectures, originally built for the AWS cloud.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/netflix-eureka.png
 tags:
   - Cloud Native
   - Failover
@@ -19,27 +31,42 @@ created: '2026-03-26'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-  - aid: netflix-eureka:netflix-eureka
-    name: Netflix Eureka
-    description: >-
-      Netflix Eureka is a RESTful service registry used for service discovery, load balancing, and failover of
-      middle-tier servers in microservice and cloud-native architectures, originally built for the AWS cloud.
-    humanURL: https://github.com/Netflix/eureka
-    tags:
-      - Cloud Native
-      - Failover
-      - Java
-      - Load Balancing
-      - Microservices
-      - Netflix
-      - Service Discovery
-      - Service Registry
-    baseURL: http://localhost:8761/eureka
-    properties:
-      - type: Documentation
-        url: https://github.com/Netflix/eureka/wiki/Eureka-REST-operations
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/api-evangelist/netflix-eureka/refs/heads/main/openapi/eureka-rest-api.yml
+- aid: netflix-eureka:netflix-eureka-applications-api
+  name: Netflix Eureka Applications API
+  description: Query registered applications
+  humanURL: https://github.com/Netflix/eureka
+  baseURL: http://localhost:8761/eureka
+  tags:
+  - Applications
+  properties:
+  - type: OpenAPI
+    url: openapi/netflix-eureka-applications-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/Netflix/eureka/wiki/Eureka-REST-operations
+- aid: netflix-eureka:netflix-eureka-instances-api
+  name: Netflix Eureka Instances API
+  description: Manage service instances
+  humanURL: https://github.com/Netflix/eureka
+  baseURL: http://localhost:8761/eureka
+  tags:
+  - Instances
+  properties:
+  - type: OpenAPI
+    url: openapi/netflix-eureka-instances-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/Netflix/eureka/wiki/Eureka-REST-operations
+- aid: netflix-eureka:netflix-eureka-vip-api
+  name: Netflix Eureka VIP API
+  description: Virtual IP address based queries
+  humanURL: https://github.com/Netflix/eureka
+  baseURL: http://localhost:8761/eureka
+  tags:
+  - VIP
+  properties:
+  - type: OpenAPI
+    url: openapi/netflix-eureka-vip-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/Netflix/eureka/wiki/Eureka-REST-operations
 common:
   - type: AgenticAccess
     url: agentic-access/netflix-eureka-agentic-access.yml

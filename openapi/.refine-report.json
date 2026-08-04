@@ -1,0 +1,18 @@
+{
+  "provider": "netflix-eureka",
+  "sources": [
+    "netflix-eureka-applications-api-openapi.yml",
+    "netflix-eureka-instances-api-openapi.yml",
+    "netflix-eureka-vip-api-openapi.yml"
+  ],
+  "outputs": [
+    "netflix-eureka-applications-api-openapi.yml",
+    "netflix-eureka-instances-api-openapi.yml",
+    "netflix-eureka-vip-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

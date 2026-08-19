@@ -1,0 +1,284 @@
+{
+  "item": [
+    {
+      "id": "b5b11bd2-8406-49a0-9f2c-426e35a105b3",
+      "name": "VIP",
+      "description": {
+        "content": "Virtual IP address based queries",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f528cd02-ce58-496f-bfda-90fdb78869eb",
+          "name": "Query by VIP address",
+          "request": {
+            "name": "Query by VIP address",
+            "description": {
+              "content": "Returns instances registered under a specific VIP address.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vips",
+                ":vipAddress"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vipAddress",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "baca0907-8fc5-480f-a6ee-22dbef8a7939",
+              "name": "Instances for VIP address",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vips",
+                    ":vipAddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vipAddress",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"applications\": {\n    \"versions__delta\": \"string\",\n    \"apps__hashcode\": \"string\",\n    \"application\": [\n      {\n        \"name\": \"string\",\n        \"instance\": [\n          {\n            \"hostName\": \"string\",\n            \"app\": \"string\",\n            \"vipAddress\": \"string\",\n            \"dataCenterInfo\": {\n              \"@class\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"metadata\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"instanceId\": \"string\",\n            \"ipAddr\": \"string\",\n            \"status\": \"OUT_OF_SERVICE\",\n            \"overriddenStatus\": \"OUT_OF_SERVICE\",\n            \"port\": {\n              \"$\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"@enabled\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"securePort\": {\n              \"$\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"@enabled\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"countryId\": 4730,\n            \"leaseInfo\": {\n              \"renewalIntervalInSecs\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"durationInSecs\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"registrationTimestamp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"lastRenewalTimestamp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"evictionTimestamp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"serviceUpTimestamp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"metadata\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_2\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"homePageUrl\": \"http://ENXdMnbtkIPO.yjT.OGido7jujnpZBGksJr1yeBcnQqvp-g0CqtBGXgdgUaRig0wINiVtteZmbJWNFGKW.\",\n            \"statusPageUrl\": \"http://BwAsHARFptnOGQnTZSZuLcOL.nhkN4k0xjz.7DMpasqnoOCJBtYItJ\",\n            \"healthCheckUrl\": \"https://XwjLUmLTJCYuqbfqdYf.wbhRtX3ZqY-Ox,7uXNNCz+Ad-Mv7cPt4Bsldj75+Z506si9aaTVNCWSGunczL\",\n            \"secureHealthCheckUrl\": \"http://dWpEuNhIiPudnUfkdapieVykaBDRT.wrh6xF7JB-PBAZLaykDLbNvUi-p,+JzpguvFH1\",\n            \"secureVipAddress\": \"string\",\n            \"isCoordinatingDiscoveryServer\": \"string\",\n            \"lastUpdatedTimestamp\": \"string\",\n            \"lastDirtyTimestamp\": \"string\",\n            \"actionType\": \"ADDED\"\n          },\n          {\n            \"hostName\": \"string\",\n            \"app\": \"string\",\n            \"vipAddress\": \"string\",\n            \"dataCenterInfo\": {\n              \"@class\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"metadata\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"instanceId\": \"string\",\n            \"ipAddr\": \"string\",\n            \"status\": \"STARTING\",\n            \"overriddenStatus\": \"OUT_OF_SERVICE\",\n            \"port\": {\n              \"$\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"@enabled\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"securePort\": {\n              \"$\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"@enabled\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"countryId\": 9543,\n            \"leaseInfo\": {\n              \"renewalIntervalInSecs\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"durationInSecs\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"registrationTimestamp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"lastRenewalTimestamp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"evictionTimestamp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"serviceUpTimestamp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"metadata\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"homePageUrl\": \"https://rUxxTAsBmeEaIM.cjbzJ2X-bTaZKE9ihHXOPhFjmuABK-TUk0fIDuWpRMmIrcQIk0vLMzarzSbY8EWDYtrpUSaG\",\n            \"statusPageUrl\": \"https://yKcwhDZUvbTm.pcNqeQ7.I6Z0b7sQiF,IFoPWfT5lm,d2nBadm\",\n            \"healthCheckUrl\": \"http://XtyjpEOlTvPNPYZiikkJJZgQtioNupjfK.grkb4RGiwTkNCu2L2nMqA73jTor,YLrSa\",\n            \"secureHealthCheckUrl\": \"http://uQSrskXjtwgnnHVgSxGxcDcrWna.lkk2MoXpbEGpfEnThX\",\n            \"secureVipAddress\": \"string\",\n            \"isCoordinatingDiscoveryServer\": \"string\",\n            \"lastUpdatedTimestamp\": \"string\",\n            \"lastDirtyTimestamp\": \"string\",\n            \"actionType\": \"MODIFIED\"\n          }\n        ]\n      },\n      {\n        \"name\": \"string\",\n        \"instance\": [\n          {\n            \"hostName\": \"string\",\n            \"app\": \"string\",\n            \"vipAddress\": \"string\",\n            \"dataCenterInfo\": {\n              \"@class\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"metadata\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"instanceId\": \"string\",\n            \"ipAddr\": \"string\",\n            \"status\": \"UNKNOWN\",\n            \"overriddenStatus\": \"UP\",\n            \"port\": {\n              \"$\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"@enabled\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"securePort\": {\n              \"$\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"@enabled\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"countryId\": 6942,\n            \"leaseInfo\": {\n              \"renewalIntervalInSecs\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"durationInSecs\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"registrationTimestamp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"lastRenewalTimestamp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"evictionTimestamp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"serviceUpTimestamp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"metadata\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"homePageUrl\": \"https://RyTkGWZGmlgQXLhrNJa.xmDxBGAgLF-H\",\n            \"statusPageUrl\": \"http://fcWVbauKEqYBBMBCkaeNOpLdOK.ypnnAfpZu7mPXqxFiMQ6,u5gVW1o4+qFHZ\",\n            \"healthCheckUrl\": \"https://reryjxjhuCqpvFfDvUtfFDtaCguLiA.ktveip-JgYdVdk,O1EB5eTvGBHk89JY3QZ+CwP1UupzSniagt2lk8VGCK-nqoWjus47YWMJ,OnKMzuO5lm8F\",\n            \"secureHealthCheckUrl\": \"http://dfxvYtAtPvMtRfZ.pgijfOE\",\n            \"secureVipAddress\": \"string\",\n            \"isCoordinatingDiscoveryServer\": \"string\",\n            \"lastUpdatedTimestamp\": \"string\",\n            \"lastDirtyTimestamp\": \"string\",\n            \"actionType\": \"ADDED\"\n          },\n          {\n            \"hostName\": \"string\",\n            \"app\": \"string\",\n            \"vipAddress\": \"string\",\n            \"dataCenterInfo\": {\n              \"@class\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"metadata\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"instanceId\": \"string\",\n            \"ipAddr\": \"string\",\n            \"status\": \"UP\",\n            \"overriddenStatus\": \"UNKNOWN\",\n            \"port\": {\n              \"$\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"@enabled\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"securePort\": {\n              \"$\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"@enabled\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"countryId\": 4051,\n            \"leaseInfo\": {\n              \"renewalIntervalInSecs\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"durationInSecs\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"registrationTimestamp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"lastRenewalTimestamp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"evictionTimestamp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"serviceUpTimestamp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"metadata\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_2\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"homePageUrl\": \"https://rQDFOdWwkKyWWkKXUx.xugdCDqWf3,pkO\",\n            \"statusPageUrl\": \"http://iiMq.agcvcz4oWFeXsLauOA3gZXA+nwl9hP1nRoydK61Yrq8\",\n            \"healthCheckUrl\": \"http://XDIz.cghjPJUu0BQHT45WECGHzd1+y9V8cTZpB-4mdS\",\n            \"secureHealthCheckUrl\": \"https://SpOIsAfmE.muPAS7ddntl4z1lKBNYSu-FbPsCA0X,O6WSbYSRA8RjKlA2cIi6\",\n            \"secureVipAddress\": \"string\",\n            \"isCoordinatingDiscoveryServer\": \"string\",\n            \"lastUpdatedTimestamp\": \"string\",\n            \"lastDirtyTimestamp\": \"string\",\n            \"actionType\": \"DELETED\"\n          }\n        ]\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dbec85d0-ba60-4b79-a0fd-751939a91d5b",
+              "name": "No instances found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vips",
+                    ":vipAddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vipAddress",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7bc71fc8-8545-4e46-a944-6e2ec27311ea",
+          "name": "Query by secure VIP address",
+          "request": {
+            "name": "Query by secure VIP address",
+            "description": {
+              "content": "Returns instances registered under a specific secure VIP address.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "svips",
+                ":svipAddress"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "svipAddress",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "87e44f1e-8860-481c-805f-466ff1bd7dbb",
+              "name": "Instances for secure VIP address",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "svips",
+                    ":svipAddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "svipAddress",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"applications\": {\n    \"versions__delta\": \"string\",\n    \"apps__hashcode\": \"string\",\n    \"application\": [\n      {\n        \"name\": \"string\",\n        \"instance\": [\n          {\n            \"hostName\": \"string\",\n            \"app\": \"string\",\n            \"vipAddress\": \"string\",\n            \"dataCenterInfo\": {\n              \"@class\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"metadata\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"instanceId\": \"string\",\n            \"ipAddr\": \"string\",\n            \"status\": \"OUT_OF_SERVICE\",\n            \"overriddenStatus\": \"OUT_OF_SERVICE\",\n            \"port\": {\n              \"$\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"@enabled\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"securePort\": {\n              \"$\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"@enabled\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"countryId\": 4730,\n            \"leaseInfo\": {\n              \"renewalIntervalInSecs\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"durationInSecs\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"registrationTimestamp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"lastRenewalTimestamp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"evictionTimestamp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"serviceUpTimestamp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"metadata\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_2\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"homePageUrl\": \"http://ENXdMnbtkIPO.yjT.OGido7jujnpZBGksJr1yeBcnQqvp-g0CqtBGXgdgUaRig0wINiVtteZmbJWNFGKW.\",\n            \"statusPageUrl\": \"http://BwAsHARFptnOGQnTZSZuLcOL.nhkN4k0xjz.7DMpasqnoOCJBtYItJ\",\n            \"healthCheckUrl\": \"https://XwjLUmLTJCYuqbfqdYf.wbhRtX3ZqY-Ox,7uXNNCz+Ad-Mv7cPt4Bsldj75+Z506si9aaTVNCWSGunczL\",\n            \"secureHealthCheckUrl\": \"http://dWpEuNhIiPudnUfkdapieVykaBDRT.wrh6xF7JB-PBAZLaykDLbNvUi-p,+JzpguvFH1\",\n            \"secureVipAddress\": \"string\",\n            \"isCoordinatingDiscoveryServer\": \"string\",\n            \"lastUpdatedTimestamp\": \"string\",\n            \"lastDirtyTimestamp\": \"string\",\n            \"actionType\": \"ADDED\"\n          },\n          {\n            \"hostName\": \"string\",\n            \"app\": \"string\",\n            \"vipAddress\": \"string\",\n            \"dataCenterInfo\": {\n              \"@class\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"metadata\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"instanceId\": \"string\",\n            \"ipAddr\": \"string\",\n            \"status\": \"STARTING\",\n            \"overriddenStatus\": \"OUT_OF_SERVICE\",\n            \"port\": {\n              \"$\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"@enabled\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"securePort\": {\n              \"$\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"@enabled\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"countryId\": 9543,\n            \"leaseInfo\": {\n              \"renewalIntervalInSecs\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"durationInSecs\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"registrationTimestamp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"lastRenewalTimestamp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"evictionTimestamp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"serviceUpTimestamp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"metadata\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"homePageUrl\": \"https://rUxxTAsBmeEaIM.cjbzJ2X-bTaZKE9ihHXOPhFjmuABK-TUk0fIDuWpRMmIrcQIk0vLMzarzSbY8EWDYtrpUSaG\",\n            \"statusPageUrl\": \"https://yKcwhDZUvbTm.pcNqeQ7.I6Z0b7sQiF,IFoPWfT5lm,d2nBadm\",\n            \"healthCheckUrl\": \"http://XtyjpEOlTvPNPYZiikkJJZgQtioNupjfK.grkb4RGiwTkNCu2L2nMqA73jTor,YLrSa\",\n            \"secureHealthCheckUrl\": \"http://uQSrskXjtwgnnHVgSxGxcDcrWna.lkk2MoXpbEGpfEnThX\",\n            \"secureVipAddress\": \"string\",\n            \"isCoordinatingDiscoveryServer\": \"string\",\n            \"lastUpdatedTimestamp\": \"string\",\n            \"lastDirtyTimestamp\": \"string\",\n            \"actionType\": \"MODIFIED\"\n          }\n        ]\n      },\n      {\n        \"name\": \"string\",\n        \"instance\": [\n          {\n            \"hostName\": \"string\",\n            \"app\": \"string\",\n            \"vipAddress\": \"string\",\n            \"dataCenterInfo\": {\n              \"@class\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"metadata\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"instanceId\": \"string\",\n            \"ipAddr\": \"string\",\n            \"status\": \"UNKNOWN\",\n            \"overriddenStatus\": \"UP\",\n            \"port\": {\n              \"$\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"@enabled\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"securePort\": {\n              \"$\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"@enabled\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"countryId\": 6942,\n            \"leaseInfo\": {\n              \"renewalIntervalInSecs\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"durationInSecs\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"registrationTimestamp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"lastRenewalTimestamp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"evictionTimestamp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"serviceUpTimestamp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"metadata\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"homePageUrl\": \"https://RyTkGWZGmlgQXLhrNJa.xmDxBGAgLF-H\",\n            \"statusPageUrl\": \"http://fcWVbauKEqYBBMBCkaeNOpLdOK.ypnnAfpZu7mPXqxFiMQ6,u5gVW1o4+qFHZ\",\n            \"healthCheckUrl\": \"https://reryjxjhuCqpvFfDvUtfFDtaCguLiA.ktveip-JgYdVdk,O1EB5eTvGBHk89JY3QZ+CwP1UupzSniagt2lk8VGCK-nqoWjus47YWMJ,OnKMzuO5lm8F\",\n            \"secureHealthCheckUrl\": \"http://dfxvYtAtPvMtRfZ.pgijfOE\",\n            \"secureVipAddress\": \"string\",\n            \"isCoordinatingDiscoveryServer\": \"string\",\n            \"lastUpdatedTimestamp\": \"string\",\n            \"lastDirtyTimestamp\": \"string\",\n            \"actionType\": \"ADDED\"\n          },\n          {\n            \"hostName\": \"string\",\n            \"app\": \"string\",\n            \"vipAddress\": \"string\",\n            \"dataCenterInfo\": {\n              \"@class\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"metadata\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"instanceId\": \"string\",\n            \"ipAddr\": \"string\",\n            \"status\": \"UP\",\n            \"overriddenStatus\": \"UNKNOWN\",\n            \"port\": {\n              \"$\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"@enabled\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"securePort\": {\n              \"$\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"@enabled\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"countryId\": 4051,\n            \"leaseInfo\": {\n              \"renewalIntervalInSecs\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"durationInSecs\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"registrationTimestamp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"lastRenewalTimestamp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"evictionTimestamp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"serviceUpTimestamp\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"metadata\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_2\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"homePageUrl\": \"https://rQDFOdWwkKyWWkKXUx.xugdCDqWf3,pkO\",\n            \"statusPageUrl\": \"http://iiMq.agcvcz4oWFeXsLauOA3gZXA+nwl9hP1nRoydK61Yrq8\",\n            \"healthCheckUrl\": \"http://XDIz.cghjPJUu0BQHT45WECGHzd1+y9V8cTZpB-4mdS\",\n            \"secureHealthCheckUrl\": \"https://SpOIsAfmE.muPAS7ddntl4z1lKBNYSu-FbPsCA0X,O6WSbYSRA8RjKlA2cIi6\",\n            \"secureVipAddress\": \"string\",\n            \"isCoordinatingDiscoveryServer\": \"string\",\n            \"lastUpdatedTimestamp\": \"string\",\n            \"lastDirtyTimestamp\": \"string\",\n            \"actionType\": \"DELETED\"\n          }\n        ]\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0ff51fbb-7fca-48bc-9861-92f502da326f",
+              "name": "No instances found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "svips",
+                    ":svipAddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "svipAddress",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8761/eureka",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "891b1e43-9c55-4534-ba09-ca2148ccb031",
+    "name": "Netflix Eureka REST Applications VIP API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Eureka REST operations for service registration, discovery, and instance management. Eureka is a REST-based service for locating services for the purpose of load balancing and failover of middle-tier servers.\n\nContact Support:\n Name: Netflix OSS",
+      "type": "text/plain"
+    }
+  }
+}

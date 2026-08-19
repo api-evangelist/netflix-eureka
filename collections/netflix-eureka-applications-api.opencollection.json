@@ -1,0 +1,67 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Netflix Eureka REST Applications API",
+    "version": "2.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Applications",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get all registered applications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8761/eureka/apps",
+            "params": [
+              {
+                "name": "regions",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of remote regions to include"
+              }
+            ]
+          },
+          "docs": "Returns all registered application instances grouped by application name."
+        },
+        {
+          "info": {
+            "name": "Get application by name",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8761/eureka/apps/:appId",
+            "params": [
+              {
+                "name": "appId",
+                "value": "",
+                "type": "path",
+                "description": "Application name"
+              }
+            ]
+          },
+          "docs": "Returns all instances of a specific application."
+        },
+        {
+          "info": {
+            "name": "Get recent changes (delta)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8761/eureka/apps/delta"
+          },
+          "docs": "Returns recently changed instances. Used by clients to incrementally update their local cache rather than fetching the full registry."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

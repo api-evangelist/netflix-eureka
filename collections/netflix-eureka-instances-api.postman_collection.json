@@ -1,0 +1,1284 @@
+{
+  "item": [
+    {
+      "id": "a425e782-2520-4a77-b86c-8ba11564e10f",
+      "name": "Instances",
+      "description": {
+        "content": "Manage service instances",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b5db93ef-1360-4a41-b376-e768165de54d",
+          "name": "Register a new application instance",
+          "request": {
+            "name": "Register a new application instance",
+            "description": {
+              "content": "Registers a new instance for the specified application.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "apps",
+                ":appId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "appId",
+                  "description": "(Required) Application name"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"instance\": {\n    \"hostName\": \"<string>\",\n    \"app\": \"<string>\",\n    \"vipAddress\": \"<string>\",\n    \"dataCenterInfo\": {\n      \"@class\": \"<string>\",\n      \"name\": \"<string>\",\n      \"metadata\": {\n        \"ami-launch-index\": \"<string>\",\n        \"local-hostname\": \"<string>\",\n        \"availability-zone\": \"<string>\",\n        \"instance-id\": \"<string>\",\n        \"public-ipv4\": \"<string>\",\n        \"public-hostname\": \"<string>\",\n        \"ami-manifest-path\": \"<string>\",\n        \"local-ipv4\": \"<string>\",\n        \"hostname\": \"<string>\",\n        \"ami-id\": \"<string>\",\n        \"instance-type\": \"<string>\"\n      }\n    },\n    \"instanceId\": \"<string>\",\n    \"ipAddr\": \"<string>\",\n    \"status\": \"<string>\",\n    \"overriddenStatus\": \"<string>\",\n    \"port\": {\n      \"$\": \"<integer>\",\n      \"@enabled\": \"<string>\"\n    },\n    \"securePort\": {\n      \"$\": \"<integer>\",\n      \"@enabled\": \"<string>\"\n    },\n    \"countryId\": \"<integer>\",\n    \"leaseInfo\": {\n      \"renewalIntervalInSecs\": \"<integer>\",\n      \"durationInSecs\": \"<integer>\",\n      \"registrationTimestamp\": \"<long>\",\n      \"lastRenewalTimestamp\": \"<long>\",\n      \"evictionTimestamp\": \"<long>\",\n      \"serviceUpTimestamp\": \"<long>\"\n    },\n    \"metadata\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\",\n      \"key_2\": \"<string>\"\n    },\n    \"homePageUrl\": \"<uri>\",\n    \"statusPageUrl\": \"<uri>\",\n    \"healthCheckUrl\": \"<uri>\",\n    \"secureHealthCheckUrl\": \"<uri>\",\n    \"secureVipAddress\": \"<string>\",\n    \"isCoordinatingDiscoveryServer\": \"<string>\",\n    \"lastUpdatedTimestamp\": \"<string>\",\n    \"lastDirtyTimestamp\": \"<string>\",\n    \"actionType\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a5e2cc19-9266-4c94-abf0-0a81508c5dd6",
+              "name": "Instance registered successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apps",
+                    ":appId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) Application name"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"instance\": {\n    \"hostName\": \"string\",\n    \"app\": \"string\",\n    \"vipAddress\": \"string\",\n    \"dataCenterInfo\": {\n      \"@class\": \"string\",\n      \"name\": \"Amazon\",\n      \"metadata\": {\n        \"ami-launch-index\": \"string\",\n        \"local-hostname\": \"string\",\n        \"availability-zone\": \"string\",\n        \"instance-id\": \"string\",\n        \"public-ipv4\": \"string\",\n        \"public-hostname\": \"string\",\n        \"ami-manifest-path\": \"string\",\n        \"local-ipv4\": \"string\",\n        \"hostname\": \"string\",\n        \"ami-id\": \"string\",\n        \"instance-type\": \"string\"\n      }\n    },\n    \"instanceId\": \"string\",\n    \"ipAddr\": \"string\",\n    \"status\": \"STARTING\",\n    \"overriddenStatus\": \"UNKNOWN\",\n    \"port\": {\n      \"$\": 8950,\n      \"@enabled\": \"string\"\n    },\n    \"securePort\": {\n      \"$\": 2668,\n      \"@enabled\": \"string\"\n    },\n    \"countryId\": 7012,\n    \"leaseInfo\": {\n      \"renewalIntervalInSecs\": 3807,\n      \"durationInSecs\": 3484,\n      \"registrationTimestamp\": 8984,\n      \"lastRenewalTimestamp\": 7695,\n      \"evictionTimestamp\": 3750,\n      \"serviceUpTimestamp\": 6377\n    },\n    \"metadata\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    },\n    \"homePageUrl\": \"https://WjpVqwKbfNwakRphSZcI.vsqgd4AFahHghxgyCXIrWXGiQx+eIDCcps5u3GFmrZt1S7CKf+FyyNmGSH9H2GksIMapel\",\n    \"statusPageUrl\": \"http://ctawwBGGvpFrtcLujIyqwmjCzZE.siseS-+UKVEZ2nbl2ZZLuuO\",\n    \"healthCheckUrl\": \"http://RpSkTZoknKSWhwnpuXUL.ppsd6BN.mp4tBKhK-cPtuaRU40SNUYYi4WDIFQO5\",\n    \"secureHealthCheckUrl\": \"http://qVuqpmsvrqQAqpNQGeli.grnfVG5gUuv2Cs+Oki+r\",\n    \"secureVipAddress\": \"string\",\n    \"isCoordinatingDiscoveryServer\": \"string\",\n    \"lastUpdatedTimestamp\": \"string\",\n    \"lastDirtyTimestamp\": \"string\",\n    \"actionType\": \"DELETED\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "71973139-c1b0-4b37-a0a8-cb9d8b962da9",
+          "name": "Get a specific instance",
+          "request": {
+            "name": "Get a specific instance",
+            "description": {
+              "content": "Returns information about a specific instance of an application.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "apps",
+                ":appId",
+                ":instanceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "appId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "instanceId",
+                  "description": "(Required) Instance ID (typically hostname)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ba520df8-ace4-4f60-bad0-e90794c7ef8d",
+              "name": "Instance information",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apps",
+                    ":appId",
+                    ":instanceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "instanceId",
+                      "description": "(Required) Instance ID (typically hostname)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"instance\": {\n    \"hostName\": \"string\",\n    \"app\": \"string\",\n    \"vipAddress\": \"string\",\n    \"dataCenterInfo\": {\n      \"@class\": \"string\",\n      \"name\": \"Amazon\",\n      \"metadata\": {\n        \"ami-launch-index\": \"string\",\n        \"local-hostname\": \"string\",\n        \"availability-zone\": \"string\",\n        \"instance-id\": \"string\",\n        \"public-ipv4\": \"string\",\n        \"public-hostname\": \"string\",\n        \"ami-manifest-path\": \"string\",\n        \"local-ipv4\": \"string\",\n        \"hostname\": \"string\",\n        \"ami-id\": \"string\",\n        \"instance-type\": \"string\"\n      }\n    },\n    \"instanceId\": \"string\",\n    \"ipAddr\": \"string\",\n    \"status\": \"STARTING\",\n    \"overriddenStatus\": \"UNKNOWN\",\n    \"port\": {\n      \"$\": 8950,\n      \"@enabled\": \"string\"\n    },\n    \"securePort\": {\n      \"$\": 2668,\n      \"@enabled\": \"string\"\n    },\n    \"countryId\": 7012,\n    \"leaseInfo\": {\n      \"renewalIntervalInSecs\": 3807,\n      \"durationInSecs\": 3484,\n      \"registrationTimestamp\": 8984,\n      \"lastRenewalTimestamp\": 7695,\n      \"evictionTimestamp\": 3750,\n      \"serviceUpTimestamp\": 6377\n    },\n    \"metadata\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    },\n    \"homePageUrl\": \"https://WjpVqwKbfNwakRphSZcI.vsqgd4AFahHghxgyCXIrWXGiQx+eIDCcps5u3GFmrZt1S7CKf+FyyNmGSH9H2GksIMapel\",\n    \"statusPageUrl\": \"http://ctawwBGGvpFrtcLujIyqwmjCzZE.siseS-+UKVEZ2nbl2ZZLuuO\",\n    \"healthCheckUrl\": \"http://RpSkTZoknKSWhwnpuXUL.ppsd6BN.mp4tBKhK-cPtuaRU40SNUYYi4WDIFQO5\",\n    \"secureHealthCheckUrl\": \"http://qVuqpmsvrqQAqpNQGeli.grnfVG5gUuv2Cs+Oki+r\",\n    \"secureVipAddress\": \"string\",\n    \"isCoordinatingDiscoveryServer\": \"string\",\n    \"lastUpdatedTimestamp\": \"string\",\n    \"lastDirtyTimestamp\": \"string\",\n    \"actionType\": \"DELETED\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "09f63533-fbbd-428f-a9d2-3f8bd6473c63",
+              "name": "Instance not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apps",
+                    ":appId",
+                    ":instanceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "instanceId",
+                      "description": "(Required) Instance ID (typically hostname)"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b57d871c-e46d-4407-8ffe-9eb482e8d354",
+          "name": "Deregister an instance",
+          "request": {
+            "name": "Deregister an instance",
+            "description": {
+              "content": "Removes the specified instance from the registry.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "apps",
+                ":appId",
+                ":instanceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "appId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "instanceId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8f232b6a-ba35-41fa-a9c3-00c8817ca9c2",
+              "name": "Instance deregistered",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apps",
+                    ":appId",
+                    ":instanceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "instanceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6c66c2cc-5b28-4a5a-8306-9d1d044366d8",
+              "name": "Instance not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apps",
+                    ":appId",
+                    ":instanceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "instanceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0addab37-db98-4038-b1c3-8dce121f2cda",
+          "name": "Send heartbeat",
+          "request": {
+            "name": "Send heartbeat",
+            "description": {
+              "content": "Sends a heartbeat to indicate the instance is still alive. Must be sent periodically to avoid expiration (default 90 seconds).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "apps",
+                ":appId",
+                ":instanceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Overridden status value"
+                },
+                {
+                  "disabled": false,
+                  "key": "lastDirtyTimestamp",
+                  "value": "<string>",
+                  "description": "Last dirty timestamp for conflict resolution"
+                },
+                {
+                  "disabled": false,
+                  "key": "overriddenstatus",
+                  "value": "<string>",
+                  "description": "Overridden status"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "appId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "instanceId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f834904c-da29-4d7d-abe5-efa04f2a12bf",
+              "name": "Heartbeat acknowledged",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apps",
+                    ":appId",
+                    ":instanceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lastDirtyTimestamp",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "overriddenstatus",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "instanceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d5f386c4-7889-40ab-9755-888ebba5b531",
+              "name": "Instance not found (re-register required)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apps",
+                    ":appId",
+                    ":instanceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lastDirtyTimestamp",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "overriddenstatus",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "instanceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9e807cbe-d48a-47c3-9382-de183692a1ea",
+          "name": "Update instance status override",
+          "request": {
+            "name": "Update instance status override",
+            "description": {
+              "content": "Updates the status of an instance (admin operation to take out of service).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "apps",
+                ":appId",
+                ":instanceId",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "value",
+                  "value": "<string>",
+                  "description": "(Required) New status value"
+                },
+                {
+                  "disabled": false,
+                  "key": "lastDirtyTimestamp",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "appId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "instanceId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1055430a-a8dd-4d75-ae2b-92f6dd804e77",
+              "name": "Status updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apps",
+                    ":appId",
+                    ":instanceId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "value",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lastDirtyTimestamp",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "instanceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "893ccf9e-cfca-4b76-85b8-247ada8d3df8",
+              "name": "Instance not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apps",
+                    ":appId",
+                    ":instanceId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "value",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lastDirtyTimestamp",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "instanceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6278ae75-175a-4503-ad5b-a35e0812a2fe",
+              "name": "Status update failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apps",
+                    ":appId",
+                    ":instanceId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "value",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lastDirtyTimestamp",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "instanceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9c51a832-6f34-4675-af79-bb303bf2adef",
+          "name": "Remove status override",
+          "request": {
+            "name": "Remove status override",
+            "description": {
+              "content": "Removes the status override and reverts to the instance's actual status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "apps",
+                ":appId",
+                ":instanceId",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lastDirtyTimestamp",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "appId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "instanceId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "179efc65-0caa-4bc3-a4f3-422380d2cc39",
+              "name": "Status override removed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apps",
+                    ":appId",
+                    ":instanceId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lastDirtyTimestamp",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "instanceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ac240376-1fa0-47ae-934d-a54e5764e431",
+              "name": "Instance not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apps",
+                    ":appId",
+                    ":instanceId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lastDirtyTimestamp",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "instanceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "71fd83f7-067f-4b4d-93e2-015a1a6e06b7",
+          "name": "Update instance metadata",
+          "request": {
+            "name": "Update instance metadata",
+            "description": {
+              "content": "Updates the metadata map for an instance.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "apps",
+                ":appId",
+                ":instanceId",
+                "metadata"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "appId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "instanceId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key_0\": \"<string>\",\n  \"key_1\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "50a3b17c-d736-4928-bf47-c8c533fc9daa",
+              "name": "Metadata updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apps",
+                    ":appId",
+                    ":instanceId",
+                    "metadata"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "instanceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key_0\": \"<string>\",\n  \"key_1\": \"<string>\",\n  \"key_2\": \"<string>\",\n  \"key_3\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1c7b252a-3abf-4e63-a0bd-1d0d75fb4350",
+              "name": "Instance not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apps",
+                    ":appId",
+                    ":instanceId",
+                    "metadata"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "instanceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key_0\": \"<string>\",\n  \"key_1\": \"<string>\",\n  \"key_2\": \"<string>\",\n  \"key_3\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bb634dc3-3931-4bb2-b82e-3556bc3191a3",
+          "name": "Get instance by ID",
+          "request": {
+            "name": "Get instance by ID",
+            "description": {
+              "content": "Returns instance information by unique instance ID (across all apps).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "instances",
+                ":instanceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "instanceId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f7323db1-2de8-485e-b3bf-049d01270271",
+              "name": "Instance information",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instances",
+                    ":instanceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "instanceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"instance\": {\n    \"hostName\": \"string\",\n    \"app\": \"string\",\n    \"vipAddress\": \"string\",\n    \"dataCenterInfo\": {\n      \"@class\": \"string\",\n      \"name\": \"Amazon\",\n      \"metadata\": {\n        \"ami-launch-index\": \"string\",\n        \"local-hostname\": \"string\",\n        \"availability-zone\": \"string\",\n        \"instance-id\": \"string\",\n        \"public-ipv4\": \"string\",\n        \"public-hostname\": \"string\",\n        \"ami-manifest-path\": \"string\",\n        \"local-ipv4\": \"string\",\n        \"hostname\": \"string\",\n        \"ami-id\": \"string\",\n        \"instance-type\": \"string\"\n      }\n    },\n    \"instanceId\": \"string\",\n    \"ipAddr\": \"string\",\n    \"status\": \"STARTING\",\n    \"overriddenStatus\": \"UNKNOWN\",\n    \"port\": {\n      \"$\": 8950,\n      \"@enabled\": \"string\"\n    },\n    \"securePort\": {\n      \"$\": 2668,\n      \"@enabled\": \"string\"\n    },\n    \"countryId\": 7012,\n    \"leaseInfo\": {\n      \"renewalIntervalInSecs\": 3807,\n      \"durationInSecs\": 3484,\n      \"registrationTimestamp\": 8984,\n      \"lastRenewalTimestamp\": 7695,\n      \"evictionTimestamp\": 3750,\n      \"serviceUpTimestamp\": 6377\n    },\n    \"metadata\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    },\n    \"homePageUrl\": \"https://WjpVqwKbfNwakRphSZcI.vsqgd4AFahHghxgyCXIrWXGiQx+eIDCcps5u3GFmrZt1S7CKf+FyyNmGSH9H2GksIMapel\",\n    \"statusPageUrl\": \"http://ctawwBGGvpFrtcLujIyqwmjCzZE.siseS-+UKVEZ2nbl2ZZLuuO\",\n    \"healthCheckUrl\": \"http://RpSkTZoknKSWhwnpuXUL.ppsd6BN.mp4tBKhK-cPtuaRU40SNUYYi4WDIFQO5\",\n    \"secureHealthCheckUrl\": \"http://qVuqpmsvrqQAqpNQGeli.grnfVG5gUuv2Cs+Oki+r\",\n    \"secureVipAddress\": \"string\",\n    \"isCoordinatingDiscoveryServer\": \"string\",\n    \"lastUpdatedTimestamp\": \"string\",\n    \"lastDirtyTimestamp\": \"string\",\n    \"actionType\": \"DELETED\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eadc9e39-d82a-4df4-be93-87ed12e98ed9",
+              "name": "Instance not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instances",
+                    ":instanceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "instanceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8761/eureka",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "cca2109e-c6a9-422e-ab3c-2e60428bcfb0",
+    "name": "Netflix Eureka REST Applications Instances API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Eureka REST operations for service registration, discovery, and instance management. Eureka is a REST-based service for locating services for the purpose of load balancing and failover of middle-tier servers.\n\nContact Support:\n Name: Netflix OSS",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Netflix Eureka REST Applications VIP API",
+    "version": "2.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "VIP",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query by VIP address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8761/eureka/vips/:vipAddress",
+            "params": [
+              {
+                "name": "vipAddress",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns instances registered under a specific VIP address."
+        },
+        {
+          "info": {
+            "name": "Query by secure VIP address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8761/eureka/svips/:svipAddress",
+            "params": [
+              {
+                "name": "svipAddress",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns instances registered under a specific secure VIP address."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -18,6 +18,15 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/netflix-eureka.png
 tags:
+  - Cloud-Native
+  - Failover
+  - Java
+  - Load Balancing
+  - Microservices
+  - Netflix
+  - Service Discovery
+  - Service Registry
+tags_raw:
   - Cloud Native
   - Failover
   - Java
@@ -37,6 +46,8 @@ apis:
   humanURL: https://github.com/Netflix/eureka
   baseURL: http://localhost:8761/eureka
   tags:
+  - Application
+  tags_raw:
   - Applications
   properties:
   - type: OpenAPI

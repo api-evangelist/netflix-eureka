@@ -1,9 +1,7 @@
 {
   "provider": "netflix-eureka",
   "sources": [
-    "netflix-eureka-applications-api-openapi.yml",
-    "netflix-eureka-instances-api-openapi.yml",
-    "netflix-eureka-vip-api-openapi.yml"
+    "_original/eureka-rest-api.yml"
   ],
   "outputs": [
     "netflix-eureka-applications-api-openapi.yml",
@@ -13,6 +11,14 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "eureka-rest-api.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "netflix-eureka-applications-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "netflix-eureka-instances-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "netflix-eureka-vip-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

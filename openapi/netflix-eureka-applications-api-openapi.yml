@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Netflix Eureka REST Applications API
   description: Eureka REST operations for service registration, discovery, and instance management. Eureka is a REST-based service for locating services for the purpose of load balancing and failover of middle-tier servers.
@@ -252,6 +252,16 @@ components:
           - ADDED
           - MODIFIED
           - DELETED
+    Application:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Application name
+        instance:
+          type: array
+          items:
+            $ref: '#/components/schemas/InstanceInfo'
     Applications:
       type: object
       properties:
@@ -265,13 +275,3 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Application'
-    Application:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Application name
-        instance:
-          type: array
-          items:
-            $ref: '#/components/schemas/InstanceInfo'

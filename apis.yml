@@ -90,6 +90,9 @@ apis:
   - type: Documentation
     url: https://github.com/Netflix/eureka/wiki/Eureka-REST-operations
 common:
+  - type: CapabilityMap
+    url: capabilities/netflix-eureka-capability-edges.yml
+    name: Netflix Eureka Business Capability Map
   - type: AgenticAccess
     url: agentic-access/netflix-eureka-agentic-access.yml
   - type: Website

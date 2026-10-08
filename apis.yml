@@ -90,6 +90,12 @@ apis:
   - type: Documentation
     url: https://github.com/Netflix/eureka/wiki/Eureka-REST-operations
 common:
+  - type: Plans
+    url: plans/netflix-eureka-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/netflix-eureka-rate-limits.yml
+  - type: FinOps
+    url: finops/netflix-eureka-finops.yml
   - type: CapabilityMap
     url: capabilities/netflix-eureka-capability-edges.yml
     name: Netflix Eureka Business Capability Map

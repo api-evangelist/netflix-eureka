@@ -1,4 +1,4 @@
-# Netflix Eureka (netflix-eureka)
+# Netflix Eureka
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,65 +66,112 @@
 
 Netflix Eureka is a RESTful service registry used for service discovery, load balancing, and failover of middle-tier servers in microservice and cloud-native architectures, originally built for the AWS cloud.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/netflix-eureka/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/netflix-eureka/refs/heads/main/apis.yml)
+**Areas:** Cloud-Native · Failover · Java · Load Balancing · Microservices · Netflix · Service Discovery · Service Registry
 
-## Scope
+## Netflix Eureka on APIs.io
 
-- **Type:** Index
+Everything profiled for Netflix Eureka is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/netflix-eureka/](https://apis.io/providers/netflix-eureka/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (3)
 
-- Cloud Native
-- Failover
-- Java
-- Load Balancing
-- Microservices
-- Netflix
-- Service Discovery
-- Service Registry
+- [Netflix Eureka Applications API](https://apis.io/apis/netflix-eureka/netflix-eureka-applications-api/) — Query registered applications
+- [Netflix Eureka Instances API](https://apis.io/apis/netflix-eureka/netflix-eureka-instances-api/) — Manage service instances
+- [Netflix Eureka VIP API](https://apis.io/apis/netflix-eureka/netflix-eureka-vip-api/) — Virtual IP address based queries
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-03-26
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Netflix Eureka
+Which operations an agent can call, which act, and which need a human in the loop.
 
-Netflix Eureka is a RESTful service registry used for service discovery, load balancing, and failover of middle-tier servers in microservice and cloud-native architectures, originally built for the AWS cloud.
+- [Netflix Eureka Agentic Access](https://apis.io/agentic-access/netflix-eureka/netflix-eureka-agentic-access/)
 
-- **Human URL:** [https://github.com/Netflix/eureka](https://github.com/Netflix/eureka)
-- **Base URL:** `http://localhost:8761/eureka`
+#### Collections (4)
 
-#### Tags
+Postman and Open Collection request collections.
 
-- Cloud Native
-- Failover
-- Java
-- Load Balancing
-- Microservices
-- Netflix
-- Service Discovery
-- Service Registry
+- [Netflix Eureka REST API](https://apis.io/collections/netflix-eureka/open-eureka-rest-api/)
+- [Netflix Eureka REST Applications API](https://apis.io/collections/netflix-eureka/open-netflix-eureka-applications-api/)
+- [Netflix Eureka REST Applications Instances API](https://apis.io/collections/netflix-eureka/open-netflix-eureka-instances-api/)
+- [Netflix Eureka REST Applications VIP API](https://apis.io/collections/netflix-eureka/open-netflix-eureka-vip-api/)
 
-#### Properties
+#### Plans and pricing (1)
 
-- [Documentation](https://github.com/Netflix/eureka/wiki/Eureka-REST-operations)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/netflix-eureka/refs/heads/main/openapi/eureka-rest-api.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/eureka-rest-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/eureka-rest-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Published plans, tiers and prices.
 
-## Common Properties
+- [Netflix Eureka Plans Pricing](https://apis.io/plans/netflix-eureka/netflix-eureka-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Netflix Eureka Rate Limits](https://apis.io/rate-limits/netflix-eureka/netflix-eureka-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Netflix Eureka Finops](https://apis.io/finops/netflix-eureka/netflix-eureka-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://github.com/Netflix/eureka)
 - [Documentation](https://github.com/Netflix/eureka/wiki)
-- [Git Hub  Org](https://github.com/Netflix)
-- [Getting Started](https://github.com/Netflix/eureka/wiki/Getting-Started)
-- [F A Q](https://github.com/Netflix/eureka/wiki/Eureka-2.0-Motivations)
-- [Issues](https://github.com/Netflix/eureka/issues)
+- [Getting started](https://github.com/Netflix/eureka/wiki/Getting-Started)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 20.7** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 41.4 |
+| Contract governance | 0.0 |
+| Operational transparency | 13.2 |
+| Developer ergonomics | 21.4 |
+| Access clarity | 7.9 |
+
+**Agent readiness 15.4** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 0.0** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/netflix-eureka/](https://apis.io/providers/netflix-eureka/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Netflix Eureka: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/netflix-eureka/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
